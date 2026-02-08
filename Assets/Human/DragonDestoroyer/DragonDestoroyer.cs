@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DragonDestoroyer : Human
 {
-   void Start()
+    void Start()
     {
         StartSetup();
         HumanSetUp();
@@ -35,7 +35,7 @@ public class DragonDestoroyer : Human
         spriteRenderer.sprite = atkSprites[3];
         yield return Wait(0.1f, 2);
 
-       
+
 
 
 
@@ -44,21 +44,21 @@ public class DragonDestoroyer : Human
 
     }
 
-     void DoragonCheck(Monsters target)
+    void DoragonCheck(Monsters target)
     {
         GameObject monsterObj = target.gameObject;
 
         if (target != null)
         {
-        float damage = atk;
+            float damage = atk;
 
-        if (monsterObj.TryGetComponent<Doragon>(out _) ||
-            monsterObj.TryGetComponent<Doragon_1>(out _))
-        {
-            damage *= 2f;
-        }
+            if (monsterObj.TryGetComponent<Doragon>(out _) ||
+                monsterObj.TryGetComponent<Doragon_1>(out _))
+            {
+                damage *= 2f;
+            }
 
-        Attack(target, damage);
+            Attack(target, damage);
         }
     }
 
